@@ -22,12 +22,7 @@ public class ConstellationService {
     }
 
     public Optional<Constellation> getById(Long id) {
-        if (!constellationRepository.existsById(id)) {
-            throw new EntityNotFoundException("get by id error");
-        }
-
         return constellationRepository.findById(id);
-
     }
 
     public List<Constellation> getAll() {

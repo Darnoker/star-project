@@ -9,12 +9,23 @@ public class Constellation {
 
     private Long id;
     private String name;
+    private Zodiac zodiac;
     private List<Star> stars = new ArrayList<>();
 
     public Constellation(String name, List<Star> stars) {
         this.name = name;
         this.stars = stars;
-        System.out.println(this);
+    }
+
+    public Constellation(String name, Zodiac zodiac) {
+        this.name = name;
+        this.zodiac = zodiac;
+    }
+
+    public Constellation(String name, Zodiac zodiac, List<Star> stars) {
+        this.name = name;
+        this.zodiac = zodiac;
+        this.stars = stars;
     }
 
     public Constellation(String name) {
@@ -50,6 +61,15 @@ public class Constellation {
 
     public void setStars(List<Star> stars) {
         this.stars = stars;
+    }
+
+    @OneToOne
+    public Zodiac getZodiac() {
+        return zodiac;
+    }
+
+    public void setZodiac(Zodiac zodiac) {
+        this.zodiac = zodiac;
     }
 
     @Override

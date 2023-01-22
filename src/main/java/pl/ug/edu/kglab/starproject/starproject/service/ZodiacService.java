@@ -23,6 +23,10 @@ public class ZodiacService {
         return zodiacRepository.findById(id);
     }
 
+    public Optional<Zodiac> getByName(String name) {
+        return zodiacRepository.findByName(name);
+    }
+
     public List<Zodiac> getAll() {
         return (List<Zodiac>) zodiacRepository.findAll();
     }
