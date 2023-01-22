@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Star </title>
+</head>
+
+<body>
+<h2>Add star</h2>
+
+<form action="#" th:action="${action == 'update'} ? @{/star/{id}(id=${starToAdd.getId()})} : @{/star}" th:object="${starToAdd}" method="post">
+    <div><input type="text" th:text="name" th:field="*{name}"></div>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+    <div><input type="text" th:text="type" th:field="*{type}"></div>
+    <div th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></div>
+
+    <div><input type="number" th:text="mass" th:field="*{mass}"></div>
+    <div th:if="${#fields.hasErrors('mass')}" th:errors="*{mass}"></div>
+
+    <div><input type="number" th:text="radius" th:field="*{radius}"></div>
+    <div th:if="${#fields.hasErrors('radius')}" th:errors="*{radius}"></div>
+
+    <div><input type="number" th:text="temperature" th:field="*{temperature}"></div>
+    <div th:if="${#fields.hasErrors('temperature')}" th:errors="*{temperature}"></div>
+
+    <div><input type="number" th:text="age" th:field="*{age}"></div>
+    <div th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+
+    <div><input type="submit" th:text="${action == 'update'} ? 'Update' : 'Add new Star'"></div>
+
+</form>
+</body>
+</html>

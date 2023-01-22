@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All stars</title>
+</head>
+
+<body>
+    <h2>Stars from DB</h2>
+    <div>
+        <a th:href="@{/star/form/}">New star</a>
+    </div>
+
+    <div th:each="star : ${allStarsFromDB}">
+        <div th:text="${star.id}"></div>
+        <div th:text="${star.name}"></div>
+        <div th:text="${star.type}"></div>
+        <div th:text="${star.mass}"></div>
+        <div th:text="${star.radius}"></div>
+        <div th:text="${star.temperature}"></div>
+        <div th:text="${star.age}"></div>
+
+        <a th:href="@{/star/{id}(id=${star.getId()})}">Delete</a>
+        <a th:href="@{/star/form/{id}(id=${star.getId()})}">update</a>
+    </div>
+</body>
+</html>
